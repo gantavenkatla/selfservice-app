@@ -2,33 +2,56 @@
   <div class="form-group">
     <label for="firstName" class="col-sm-2 control-label">First Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="firstName" placeholder="First Name">
+      <input type="text" class="form-control" id="firstName" placeholder="First Name"  [(ngModel)]="registrationPayload.firstName" name="registrationPayload.firstName" >
     </div>
   </div>
+
   <div class="form-group">
     <label for="lastName" class="col-sm-2 control-label">Last Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+      <input type="text" class="form-control" id="lastName" placeholder="Last Name" [(ngModel)]="registrationPayload.lastName" name="registrationPayload.lastName">
     </div>
   </div>
 
   <div class="form-group">
     <label for="email" class="col-sm-2 control-label">Email </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="email" placeholder="Email">
+      <input type="text" class="form-control" id="email" placeholder="Email" [(ngModel)]="registrationPayload.email" name="registrationPayload.email">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="phNum" class="col-sm-2 control-label">Phone Number</label>
+    <label for="phoneNumber" class="col-sm-2 control-label">Phone Number</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="phNum" placeholder="Phone Number ">
+      <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" [(ngModel)]="registrationPayload.phoneNumber" name="registrationPayload.phoneNumber">
     </div>
   </div>
 
+  <div class="form-group">
+    <label for="userId" class="col-sm-2 control-label">User ID</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="userId" placeholder="User Id " [(ngModel)]="registrationPayload.username" name="registrationPayload.username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="registrationPayload.password" name="registrationPayload.password">
+    </div>
+  </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="button" class="btn btn-primary btn-lg" (click)="register()">Register</button>
+    </div>
+    <span *ngIf="response">{{response.status | json}}</span>
+    <span *ngIf="response">{{response | json}}</span>
+
+    <span *ngIf="error">{{error  | json}}</span>
+
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" class="btn btn-primary btn-lg" (click)="redirectLogin()">Login</button>
     </div>
   </div>
 </form>
