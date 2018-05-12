@@ -4,6 +4,7 @@ import {LoginComponent} from "../login/login.component";
 import {RegistrationComponent} from "../registration/registration.component";
 import {ForgotpasswordComponent} from "../forgotpassword/forgotpassword.component";
 import {ForgotusernameComponent} from "../forgotusername/forgotusername.component";
+import { FormsModule} from '@angular/forms';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, { useHash: true }) ],
+  imports: [ RouterModule.forRoot(routes, { useHash: true }),FormsModule ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

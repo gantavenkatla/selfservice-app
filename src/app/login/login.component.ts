@@ -12,8 +12,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  redirect() {
-    console.log('redirect');
+  redirectSignUp() {
+    console.log('redirectSignUp');
     this.router.navigate(['/register']);
+  }
+  redirectFP() {
+    console.log('redirectForgotPassword');
+    this.router.navigate(['/forgotpassword']);
+  }redirectFU() {
+    console.log('redirectForgotUsername');
+    this.router.navigate(['/forgotusername']);
   }
 }
