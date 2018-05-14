@@ -28,6 +28,7 @@ export class RegistrationComponent implements OnInit {
     console.log("Register Clicked",this.registrationPayload);
     this.registrationService.register(this.registrationPayload).subscribe(
       response => {
+        console.log(response);
         this.response = response;
       }, error => {
         this.error = error;
