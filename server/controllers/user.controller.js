@@ -10,11 +10,13 @@ function signup(req, res) {
   RegistrationToken.findOne({value: req.body.registrationToken})
     .then(token => {
     if (!token) throw new Error('invalid registration token');
+  console.log("creating JWT Token",token);
+
   const newUser = new User(req.body);
   return newUser.save();
 })
 .then(user => {
-  console.log("creating JWT Token");
+  console.log("creating JWT Token",process.env.JWT_SECRET);
     res.json({token: createJWT(user)});
 })
 .catch(err => {
@@ -73,13 +75,14 @@ function getRegistrationToken(req, res) {
 }
 
 function createJWT(user) {
+  console.log(user);
   return jwt.sign(
     {
       _id: user._id,
-      name: user.name,
-      email: user.email,
+      name: user.username,
+      email: user.email
     },
-    JWT_SECRET,
+    process.env.JWT_SECRET,
     {
       expiresIn: '7d'
     }
